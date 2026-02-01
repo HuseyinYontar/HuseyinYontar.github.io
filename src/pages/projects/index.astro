@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects } from '../../data/projects';
+
+// Sort by date (newest first)
+const sortedProjects = [...projects].sort((a, b) => 
+  new Date(b.date).valueOf() - new Date(a.date).valueOf()
+);
+---
+
+<BaseLayout title="Projects | Hüseyin Yontar" description="Explore my portfolio of projects and open source work.">
+  <h1>Projects</h1>
+  <p class="text-muted" style="margin-bottom: var(--spacing-xl);">
+    A collection of projects I've worked on.
+  </p>
+  <hr />
+
+  <div class="card-grid">
+    {sortedProjects.map((project) => (
+      <article class="card">
+        {project.image && (
+          <img src={project.image} alt={project.title} class="card-image" />
+        )}
+        <div class="card-content">
+          <h2 class="card-title">{project.title}</h2>
+          <p class="card-date">{project.date}</p>
+          <p class="card-description">{project.description}</p>
+          {project.technologies && project.technologies.length > 0 && (
+            <div class="card-tags">
+              {project.technologies.map((tech) => (
+                <span class="tag">{tech}</span>
+              ))}
+            </div>
+          )}
+          <div class="card-links">
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                GitHub
+              </a>
+            )}
+            {project.live && (
+              <a href={project.live} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Live Demo
+              </a>
+            )}
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  {sortedProjects.length === 0 && (
+    <p class="text-muted">No projects yet. Add your first project in <code>src/data/projects.ts</code>.</p>
+  )}
+</BaseLayout>
+
+<style>
+  .card-date {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .card-links {
+    margin-top: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+
+  .card-links .btn {
+    padding: 0.4em 0.8em;
+    font-size: 0.8rem;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: var(--color-border);
+    margin: var(--spacing-md) 0 var(--spacing-xl) 0;
+  }
+</style>

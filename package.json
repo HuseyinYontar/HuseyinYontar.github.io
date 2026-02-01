@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-page",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Personal portfolio website built with Astro",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [
+    "portfolio",
+    "astro",
+    "blog"
+  ],
+  "author": "Huseyin Yontar",
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "astro": "^5.17.1"
+  }
+}

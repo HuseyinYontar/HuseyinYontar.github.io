@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { cvData } from '../data/cv';
+---
+
+<BaseLayout title="CV | Hüseyin Yontar" description="Curriculum Vitae - Hüseyin Yontar's education, experience, and qualifications.">
+  <article class="cv-page">
+    <header class="cv-header">
+      <h1>Curriculum Vitae</h1>
+    </header>
+
+    {cvData.education.length > 0 && (
+      <section class="cv-section">
+        <h2>Education</h2>
+        <div class="cv-timeline">
+          {cvData.education.map((item) => (
+            <div class="cv-item">
+              <div class="cv-date">{item.date}</div>
+              <div class="cv-content">
+                <h3>{item.title}</h3>
+                <p class="cv-institution">{item.institution}</p>
+                {item.details && item.details.length > 0 && (
+                  <ul>
+                    {item.details.map((detail) => <li set:html={detail} />)}
+                  </ul>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {cvData.experience.length > 0 && (
+      <section class="cv-section">
+        <h2>Experience</h2>
+        <div class="cv-timeline">
+          {cvData.experience.map((item) => (
+            <div class="cv-item">
+              <div class="cv-date">{item.date}</div>
+              <div class="cv-content">
+                <h3>{item.title}</h3>
+                <p class="cv-institution">{item.institution}</p>
+                {item.details && item.details.length > 0 && (
+                  <ul>
+                    {item.details.map((detail) => <li set:html={detail} />)}
+                  </ul>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {cvData.skills.length > 0 && (
+      <section class="cv-section">
+        <h2>Technical Skills</h2>
+        <div class="skills-list">
+          {cvData.skills.map((skill) => (
+            <div class="skill-row">
+              <span class="skill-label">{skill.category}:</span>
+              <span class="skill-value">{skill.items}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {cvData.certifications.length > 0 && (
+      <section class="cv-section">
+        <h2>Certifications</h2>
+        <ul class="cert-list">
+          {cvData.certifications.map((cert) => <li>{cert}</li>)}
+        </ul>
+      </section>
+    )}
+
+    {cvData.languages.length > 0 && (
+      <section class="cv-section">
+        <h2>Languages</h2>
+        <ul class="lang-list">
+          {cvData.languages.map((lang) => (
+            <li><strong>{lang.name}:</strong> {lang.level}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </article>
+</BaseLayout>
+
+<style>
+  .cv-page {
+    max-width: 100%;
+  }
+
+  .cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+
+  .cv-header h1 {
+    margin-bottom: 0;
+  }
+
+  .cv-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .cv-section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .cv-section h2 {
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .cv-timeline {
+    position: relative;
+    padding-left: var(--spacing-xl);
+  }
+
+  .cv-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--color-border);
+  }
+
+  .cv-item {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cv-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * var(--spacing-xl) - 4px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+  }
+
+  .cv-date {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+  }
+
+  .cv-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-sans);
+  }
+
+  .cv-institution {
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cv-content ul {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    padding-left: var(--spacing-lg);
+  }
+
+  .cv-content li {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .skill-row {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .skill-label {
+    font-weight: 600;
+    min-width: 100px;
+    color: var(--color-text);
+  }
+
+  .skill-value {
+    color: var(--color-text-muted);
+  }
+
+  .cert-list,
+  .lang-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cert-list li,
+  .lang-list li {
+    padding: var(--spacing-xs) 0;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .cv-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .skill-row {
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .skill-label {
+      min-width: auto;
+    }
+  }
+</style>

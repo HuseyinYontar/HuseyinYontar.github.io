@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Hüseyin Yontar" description="Software Engineering Student at IUE">
+  <article class="about-page">
+    <header class="about-header">
+      <h1>Hüseyin Yontar</h1>
+      <p class="subtitle"><em>Software Engineering Student at IUE</em></p>
+    </header>
+
+    <section class="about-intro">
+      <div class="about-content">
+        <p>
+          I am a 4th year software engineering student at <a href="https://se.ieu.edu.tr/en" target="_blank" rel="noopener noreferrer">Izmir University of Economics</a>. 
+          I'm passionate about understanding technical concepts in detail.
+        </p>
+
+        <p>
+          I've worked on various projects involving 
+          full-stack development with technologies like Python, Node.js, and React. 
+          I'm particularly interested in machine learning and image processing.
+        </p>
+
+        <p>
+          In the past, I've interned at <a href="https://www.aselsan.com/tr" target="_blank" rel="noopener noreferrer">ASELSAN</a> working on full-stack development. I'm currently an intern at 
+          <a href="https://hubx.co/" target="_blank" rel="noopener noreferrer">HubX</a> and an undergraduate teaching assistant at my university.
+        </p>
+      </div>
+
+      <div class="about-aside">
+        <div class="about-image">
+          <img src="/images/profile.jpg" alt="Hüseyin Yontar" />
+        </div>
+        <address class="contact-info">
+          <p>İzmir, Turkey</p>
+        </address>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .about-page {
+    max-width: 100%;
+  }
+
+  .about-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .about-header h1 {
+    font-size: 2.75rem;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 300;
+  }
+
+  .about-header h1 strong {
+    font-weight: 700;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+
+  .about-intro {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--spacing-2xl);
+    align-items: start;
+  }
+
+  .about-content p {
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .about-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .about-content a:hover {
+    text-decoration: underline;
+  }
+
+  .about-aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .contact-info {
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .contact-info p {
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about-intro {
+      grid-template-columns: 1fr;
+    }
+
+    .about-aside {
+      order: -1;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: var(--spacing-lg);
+    }
+
+    .about-image {
+      flex-shrink: 0;
+    }
+
+    .about-image img {
+      width: 150px;
+    }
+
+    .about-content h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
