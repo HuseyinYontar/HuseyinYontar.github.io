@@ -24,3 +24,6 @@ npm-debug.log*
 
 # Astro
 .astro/
+
+# Local config
+LOCAL_CONFIG.md
