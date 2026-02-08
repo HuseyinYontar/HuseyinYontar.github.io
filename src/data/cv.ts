@@ -30,7 +30,7 @@ export const cvData = {
             institution: "Izmir University of Economics",
             details: ["Assisting students during laboratory sessions in \"Introduction to Programming\" and \"Concepts of Programming Languages\" courses.",
                 "Collaborating with the course instructor to delivery of lab activities.",
-                "Assisted courses: <a href='https://se.ieu.edu.tr/en/syllabus/type/read/id/SE+113' target='_blank' rel='noopener noreferrer'>SE 113</a>, <a href='https://se.ieu.edu.tr/en/syllabus/type/read/id/SE+115' target='_blank' rel='noopener noreferrer'>SE 115</a>, <a href='https://se.ieu.edu.tr/en/syllabus/type/read/id/SE+323' target='_blank' rel='noopener noreferrer'>SE 323</a>"],
+                "Assisted courses: <a href='https://se.ieu.edu.tr/en/syllabus/type/read/id/SE+113' target='_blank' rel='noopener noreferrer'>SE 113</a>, <a href='https://se.ieu.edu.tr/en/syllabus/type/read/id/SE+115' target='_blank' rel='noopener noreferrer'>SE 115</a>, <a href='https://se.ieu.edu.tr/en/syllabus/type/read/id/SE+323' target='_blank' rel='noopener noreferrer'>SE 323</a>, <a href='https://se.ieu.edu.tr/en/syllabus/type/read/id/SE+311' target='_blank' rel='noopener noreferrer'>SE 311</a>."],
         },
         {
             date: "June 2025 - July 2025",

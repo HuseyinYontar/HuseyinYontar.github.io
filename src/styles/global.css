@@ -534,6 +534,10 @@ img {
     font-size: 2rem;
   }
 
+  .site-title {
+    font-size: 1.1rem;
+  }
+
   .nav {
     gap: var(--spacing-md);
   }
@@ -544,5 +548,23 @@ img {
 
   .card-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1rem;
+  }
+
+  .nav {
+    gap: var(--spacing-sm);
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .header-inner {
+    padding: 0 var(--spacing-sm);
   }
 }
